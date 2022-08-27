@@ -28,7 +28,7 @@ function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     // alert(`Code matched = ${decodedText}`, decodedResult);
     // fetch(`/admin/edit-emp/${decodedResult}`);
-    location.replace(`/admin/edit-emp/${decodedResult}`);
+    location.replace(`/admin/edit-emp/${decodedText}`);
 }
 function onScanFailure(error) {
     // handle scan failure, usually better to ignore and keep scanning.
