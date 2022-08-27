@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel=" stylesheet" href="/css/admin.css">
     <title>Admin</title>
 </head>
@@ -87,39 +86,50 @@
             <div class="col d-flex flex-column h-sm-100">
                 <main class="row overflow-auto">
                     <div class="col pt-4">
-                        <form action="/admin/post-prod" id="add-emp-form" method="post" enctype="multipart/form-data">
+                        <form action="/admin/add-employee" id="add-emp-form" method="post"
+                            enctype="multipart/form-data">
                             <h4 class="form-label">اضف موظف</h4>
                             <div class="mb-3">
-                                <input type="text" class="form-control title" name="title" value="">
-                                <input type="text" class="form-control data" name="data" value="">
+                                <input type="text" class="form-control title" name="title" readonly value="الاسم"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" value="" required>
+                                <input type="text" class="form-control data" name="data" value="" required>
                             </div>
                             <div class="mb-3">
                                 <button type="button" onclick="addInputs(this)" id="add-data"
                                     class="btn btn-dark">+</button>
                             </div>
                             <div class="mb-3">
-                                <input type="file" class="form-control" id="i-1" name="photos" multiple
-                                    placeholder="صور المنتج">
+                                <input type="file" class="form-control" id="i-1" name="photo" placeholder="صورة الموظف"
+                                    required>
                             </div>
-                            <button type="button" class="btn btn-dark" id="form-btn"> حفظ</button>
+                            <button type="submit" class="btn btn-dark" id="form-btn"> حفظ</button>
                         </form>
                     </div>
-                    <!-- <ul class="list-group">
-                        <h4>المنتجات</h4>
-                            <li class="list-group-item">
-                                <span class="prod-name">
-                                </span>
-                                <form action="/admin/remove-prod/" method="post" style="display: inline;">
-                                    <button type="button" class="btn btn-danger" onclick="removeProd(this)">حذف</button>
-                                </form><a href="/admin/edit-prod/" class="btn btn-primary"
-                                    target="_blank">تعديل</a>
-                            </li>
-                    </ul> -->
                 </main>
             </div>
             <div class="col d-flex flex-column h-sm-100 img-gallery">
-                <h3>الطلبات</h3>
+                <h3>قائمة الموظفين</h3>
                 <div class="row">
+                    <ul class="list-group">
+                        <% employees.forEach( e=>{ %>
+                            <li class="list-group-item">
+                                <span class="title">
+                                    <%= e.data[0][0]%>
+                                </span><span class="data">
+                                    <%= e.data[0][1]%>
+                                </span>
+                                <img src="<%=e.img%>" alt="" srcset="">
+                                <form action="/admin/remove-emp/<%=e._id%>" method="post">
+                                    <a href="/admin/edit-emp/<%=e._id%>" class="btn btn-primary">تعديل</a>
+                                    <button type="button" class="btn btn-danger" onclick="removeEmp(this)">حذف</button>
+                                </form>
+                            </li>
+                            <%})%>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -130,7 +140,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="/js/admin.js"></script>
 </body>
 

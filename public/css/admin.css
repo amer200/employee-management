@@ -13,24 +13,21 @@
 .nav-pills .nav-link span {
     margin-right: 5px;
 }
-
-.img-gallery {
-    max-height: 700px;
-    overflow: scroll;
-    padding-top: 50px;
-}
-
 .list-group span {
-    margin: 10px;
-    border: 2px solid #ddd;
-    padding: 10px;
-    display: block;
+    margin: 5px;
+    display: inline;
 }
 
-.list-group .prod-name {
-    display: inline;
-    border: none;
-    font-size: 1.4rem;
+.list-group .title {
+    color: #555;
+}
+
+.list-group .data {
+    color: #000;
+}
+
+.list-group img {
+    width: 45px;
 }
 
 #add-emp-form .title,
