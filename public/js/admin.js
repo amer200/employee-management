@@ -26,7 +26,7 @@ const removeEmp = (t) => {
 /* qr Scanner */
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
-    alert(`Code matched = ${decodedText}`, decodedResult);
+    // alert(`Code matched = ${decodedText}`, decodedResult);
     // fetch(`/admin/edit-emp/${decodedResult}`);
     location.replace(`/admin/edit-emp/${decodedResult}`);
 }
