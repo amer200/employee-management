@@ -106,7 +106,7 @@
                                 <input type="file" class="form-control" id="i-1" name="photo" placeholder="صورة الموظف"
                                     required>
                             </div>
-                            <button type="submit" class="btn btn-dark" id="form-btn"> حفظ</button>
+                            <button type="submit" class="btn btn-dark submit-btn" id="form-btn"> حفظ</button>
                         </form>
                     </div>
                 </main>
@@ -115,8 +115,10 @@
                 <h3>قائمة الموظفين</h3>
                 <div class="row">
                     <ul class="list-group">
-                        <h2>البحث باستخدام qrcode</h2>
-                        <div style="width: 500px" id="reader"></div>
+                        <li class="list-group-item">
+                            <h5>البحث باستخدام qrcode</h5>
+                            <div id="reader"></div>
+                        </li>
                         <% employees.forEach( e=>{ %>
                             <li class="list-group-item">
                                 <span class="title">
@@ -127,7 +129,7 @@
                                 <img src="<%=e.img%>" alt="" srcset="">
                                 <form action="/admin/remove-emp/<%=e._id%>" method="post">
                                     <a href="/admin/edit-emp/<%=e._id%>" class="btn btn-primary">تعديل</a>
-                                    <button type="button" class="btn btn-danger" onclick="removeEmp(this)">حذف</button>
+                                    <button type="button" class="btn btn-danger " onclick="removeEmp(this)">حذف</button>
                                 </form>
                             </li>
                             <%})%>

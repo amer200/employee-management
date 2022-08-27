@@ -13,6 +13,7 @@
 .nav-pills .nav-link span {
     margin-right: 5px;
 }
+
 .list-group span {
     margin: 5px;
     display: inline;
@@ -41,4 +42,15 @@
 
 #add-emp-form .data {
     width: 74%;
+}
+
+@media (max-width: 720px) {
+    #add-emp-form .submit-btn {
+        width: 100%;
+    }
+
+    #add-emp-form .title,
+    #add-emp-form .data {
+        width: 48%;
+    }
 }
