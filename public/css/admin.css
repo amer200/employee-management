@@ -5,6 +5,16 @@
     }
 }
 
+.gray {
+    background-color: #F7F7F7;
+}
+
+.bg-img {
+    background-image: url(/imgs/side-img.jpg);
+    background-repeat: repeat;
+    background-size: 100% 100%;
+}
+
 .nav-pills .nav-link {
     color: #fff;
     font-size: 1.1rem;
@@ -52,5 +62,9 @@
     #add-emp-form .title,
     #add-emp-form .data {
         width: 48%;
+    }
+
+    .ms-auto {
+        margin-right: 85% !important;
     }
 }

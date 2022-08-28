@@ -1,3 +1,4 @@
+require('dotenv').config();
 const Employee = require('../models/employee');
 const fs = require('fs');
 const QRCode = require('qrcode');
@@ -80,7 +81,27 @@ exports.removeEmp = (req, res) => {
                 res.redirect('/admin')
             })
         })
-        .catch(err =>{
+        .catch(err => {
             console.log(err)
         })
+}
+exports.getLogIn = (req, res) => {
+    res.render('admin/login', {
+        message: false
+    })
+}
+exports.postLogIn = (req, res) => {
+    const password = req.body.password;
+    if (process.env.ADMINPASSWORD == password) {
+        req.session.user = 'admin';
+        res.redirect('/admin');
+    } else {
+        res.render('/login', {
+            message: 'wrong password !'
+        })
+    }
+}
+exports.logOut = (req, res) => {
+    req.session.destroy();
+    res.redirect('/admin')
 }

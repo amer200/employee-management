@@ -6,8 +6,20 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const dbUrl = process.env.DB_URL;
 const port = process.env.PORT;
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
-
+/******************************************************************* */
+const store = new MongoDBStore({
+    uri: dbUrl,
+    collection: 'mySessions'
+});
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: store
+}))
 /********************************************************************************* */
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -28,7 +40,7 @@ app.post('/admin/edit-employee/:id', upload.single('photo'));
 /********************************************************************************* */
 const adminRoutes = require('./routes/admin');
 
-app.use('/admin', adminRoutes);
+app.use('/', adminRoutes);
 /********************************************************************************* */
 mongoose.connect(dbUrl)
     .then(resu => {
