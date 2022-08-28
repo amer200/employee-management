@@ -4,7 +4,8 @@ const adminControllers = require('../controllers/admin');
 const employeeMiddleWare = require('../middlewares/employee');
 const authControllers = require('../middlewares/auth');
 
-route.get('/admin/', authControllers.isAdmin, adminControllers.getMainPage);
+route.get('/', authControllers.isAdmin, adminControllers.getMainPage);
+route.get('/admin', authControllers.isAdmin, adminControllers.getMainPage);
 route.post('/admin/add-employee', authControllers.isAdmin, employeeMiddleWare, adminControllers.addEmployee);
 route.get('/admin/edit-emp/:id', authControllers.isAdmin, adminControllers.getEditEmployee);
 route.post('/admin/edit-employee/:id', authControllers.isAdmin, adminControllers.editEmployee);
