@@ -18,7 +18,8 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: store
+    store: store, 
+    lang: 'ar'
 }))
 /********************************************************************************* */
 app.use(express.static('public'));

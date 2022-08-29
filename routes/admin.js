@@ -13,4 +13,5 @@ route.post('/admin/remove-emp/:id', authControllers.isAdmin, adminControllers.re
 route.get('/login', adminControllers.getLogIn);
 route.post('/login', adminControllers.postLogIn);
 route.get('/logout', authControllers.isAdmin, adminControllers.logOut);
+route.get('/lang/:l', authControllers.isAdmin, adminControllers.changeLang);
 module.exports = route

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -33,7 +33,7 @@
                             <span class="d-none d-sm-inline mx-1">unicharm</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="/logout">تسجيل الخروج</a></li>
+                            <li><a class="dropdown-item" href="/logout">log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,9 +43,9 @@
                     <div class="col pt-4">
                         <form action="/admin/add-employee" id="add-emp-form" method="post"
                             enctype="multipart/form-data">
-                            <h4 class="form-label">اضف موظف</h4>
+                            <h4 class="form-label">add employee</h4>
                             <div class="mb-3">
-                                <input type="text" class="form-control title" name="title" readonly value="الاسم"
+                                <input type="text" class="form-control title" name="title" readonly value="name"
                                     required>
                                 <input type="text" class="form-control data" name="data" value="" required>
                             </div>
@@ -58,20 +58,20 @@
                                     class="btn btn-dark">+</button>
                             </div>
                             <div class="mb-3">
-                                <input type="file" class="form-control" id="i-1" name="photo" placeholder="صورة الموظف"
+                                <input type="file" class="form-control" id="i-1" name="photo" placeholder="photo"
                                     required>
                             </div>
-                            <button type="submit" class="btn btn-dark submit-btn" id="form-btn"> حفظ</button>
+                            <button type="submit" class="btn btn-dark submit-btn" id="form-btn">save</button>
                         </form>
                     </div>
                 </main>
             </div>
             <div class="col d-flex flex-column h-sm-100 img-gallery gray">
-                <h3>قائمة الموظفين</h3>
+                <h3>employee list</h3>
                 <div class="row">
                     <ul class="list-group">
                         <li class="list-group-item gray">
-                            <h5>البحث باستخدام qrcode</h5>
+                            <h5>qrcode search</h5>
                             <div id="reader" style="background-color: #fff;"></div>
                         </li>
                         <% employees.forEach( e=>{ %>
@@ -83,12 +83,20 @@
                                 </span>
                                 <img src="<%=e.img%>" alt="" srcset="">
                                 <form action="/admin/remove-emp/<%=e._id%>" method="post">
-                                    <a href="/admin/edit-emp/<%=e._id%>" class="btn btn-primary">تعديل</a>
-                                    <button type="button" class="btn btn-danger " onclick="removeEmp(this)">حذف</button>
+                                    <a href="/admin/edit-emp/<%=e._id%>" class="btn btn-primary">edit</a>
+                                    <button type="button" class="btn btn-danger "
+                                        onclick="removeEmp(this)">remove</button>
                                 </form>
                             </li>
                             <%})%>
                     </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <a href="/lang/ar" style="position: relative;
+                    left: 100%;
+                    top: -41px;">Ar</a>
                 </div>
             </div>
         </div>

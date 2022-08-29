@@ -3,9 +3,13 @@ const Employee = require('../models/employee');
 const fs = require('fs');
 const QRCode = require('qrcode');
 exports.getMainPage = (req, res) => {
+    let lang = 'ar';
+    if (req.session.lang) {
+        lang = req.session.lang
+    }
     Employee.find()
         .then(employees => {
-            res.render('admin/index', {
+            res.render(`admin-${lang}/index`, {
                 employees: employees,
             })
         })
@@ -32,9 +36,13 @@ exports.addEmployee = (req, res) => {
 }
 exports.getEditEmployee = (req, res) => {
     const id = req.params.id;
+    let lang = 'ar';
+    if (req.session.lang) {
+        lang = req.session.lang
+    }
     Employee.findById(id)
         .then(e => {
-            res.render('admin/edit-emp', {
+            res.render(`admin-${lang}/edit-emp`, {
                 e: e
             })
         })
@@ -86,7 +94,7 @@ exports.removeEmp = (req, res) => {
         })
 }
 exports.getLogIn = (req, res) => {
-    res.render('admin/login', {
+    res.render('admin-ar/login', {
         message: false
     })
 }
@@ -96,12 +104,17 @@ exports.postLogIn = (req, res) => {
         req.session.user = 'admin';
         res.redirect('/admin');
     } else {
-        res.render('/login', {
+        res.render('/admin-ar/login', {
             message: 'wrong password !'
         })
     }
 }
 exports.logOut = (req, res) => {
     req.session.destroy();
+    res.redirect('/admin')
+}
+exports.changeLang = (req, res) => {
+    const lang = req.params.l;
+    req.session.lang = lang;
     res.redirect('/admin')
 }
