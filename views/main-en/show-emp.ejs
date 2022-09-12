@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel=" stylesheet" href="/css/admin.css">
+    <title>employee</title>
+</head>
+
+<body>
+    <div class="container" style="padding: 100px;">
+        <div class="row">
+            <div class="col-12">
+                <form action="/admin/edit-employee/<%=e._id%>" id="add-emp-form" method="post"
+                    enctype="multipart/form-data">
+                    <h4 class="form-label">show employee: <%=e.data[0][1]%>
+                    </h4>
+                    <div class="mb-3">
+                        <input type="text" class="form-control title" name="title" readonly value="الاسم" required>
+                        <input type="text" class="form-control data" name="data" readonly value="<%= e.data[0][1]%>"
+                            required>
+                    </div>
+                    <% for(let i=1; i < e.data.length; i++){%>
+                        <div class="mb-3">
+                            <input type="text" class="form-control title" name="title" readonly
+                                value="<%= e.data[i][0]%>" required>
+                            <input type="text" class="form-control data" name="data" readonly value="<%= e.data[i][1]%>"
+                                required style="width: 70%;">
+                        </div>
+                        <%}%>
+                            <div class="mb-3" style="width: 50%; display: inline;">
+                                <img src="<%=e.img%>" id="emp-img" alt="employee img" style="width: 240px;">
+                            </div>
+                            <div class="mb-3" style="width: 50%; display: inline;">
+                                <img src="<%=e.qr%>" alt="">
+                            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>

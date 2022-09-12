@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel=" stylesheet" href="/css/admin.css">
+    <title>Admin</title>
+</head>
+
+<body>
+    <!--start side bar-->
+    <div class="container-fluid overflow-hidden">
+        <div class="row vh-100 overflow-auto">
+            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0  d-flex sticky-top bg-img">
+                <div
+                    class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
+                    <a href="/"
+                        class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5">UNI<span class="d-none d-sm-inline">charm</span></span>
+                    </a>
+                    <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start"
+                        id="menu">
+                    </ul>
+                    <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="/imgs/logo.jpeg" alt="hugenerd" width="28" height="28" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1">unicharm</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="/logout">تسجيل الخروج</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex flex-column h-sm-100 gray">
+                <!-- <main class="row overflow-auto">
+                    <div class="col pt-4">
+                        <form action="/admin/add-employee" id="add-emp-form" method="post"
+                            enctype="multipart/form-data">
+                            <h4 class="form-label">اضف موظف</h4>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="الاسم"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" value="" required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <button type="button" onclick="addInputs(this)" id="add-data"
+                                    class="btn btn-dark">+</button>
+                            </div>
+                            <div class="mb-3">
+                                <input type="file" class="form-control" id="i-1" name="photo" placeholder="صورة الموظف"
+                                    required>
+                            </div>
+                            <button type="submit" class="btn btn-dark submit-btn" id="form-btn"> حفظ</button>
+                        </form>
+                    </div>
+                </main> -->
+            </div>
+            <div class="col-9 d-flex flex-column h-sm-100 img-gallery gray">
+                <h3>قائمة الموظفين</h3>
+                <div class="row">
+                    <ul class="list-group">
+                        <li class="list-group-item gray">
+                            <h5>البحث باستخدام qrcode</h5>
+                            <div id="reader" style="background-color: #fff;"></div>
+                        </li>
+                        <% employees.forEach( e=>{ %>
+                            <li class="list-group-item gray">
+                                <span class="data">
+                                    <%= e.data[0][1]%>
+                                </span>
+                                <img src="<%=e.img%>" alt="" srcset="">
+                                <a href="/emp/show-emp/<%=e._id%>" class="btn btn-primary">عرض</a>
+                            </li>
+                            <%})%>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <a href="/lang/en" style="position: relative;
+                    right: 101%;
+                    top: -41px;">En</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- end side bar-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

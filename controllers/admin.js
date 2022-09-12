@@ -1,5 +1,6 @@
 require('dotenv').config();
 const Employee = require('../models/employee');
+const User = require('../models/user');
 const fs = require('fs');
 const QRCode = require('qrcode');
 exports.getMainPage = (req, res) => {
@@ -99,15 +100,29 @@ exports.getLogIn = (req, res) => {
     })
 }
 exports.postLogIn = (req, res) => {
+    const name = req.body.name;
     const password = req.body.password;
-    if (process.env.ADMINPASSWORD == password) {
-        req.session.user = 'admin';
-        res.redirect('/admin');
-    } else {
-        res.render('/admin-ar/login', {
-            message: 'wrong password !'
+    User.findOne({ name: name })
+        .then(u => {
+            if (!u) {
+                res.render('admin-ar/login', {
+                    message: 'wrong user !'
+                })
+            } else {
+                if (u.password == password) {
+                    req.session.user = u.rolle;
+                    if (u.rolle == 'admin') {
+                        res.redirect('/admin');
+                    } else {
+                        res.redirect('/emp');
+                    }
+                } else {
+                    res.render('admin-ar/login', {
+                        message: 'wrong password !'
+                    })
+                }
+            }
         })
-    }
 }
 exports.logOut = (req, res) => {
     req.session.destroy();
@@ -116,5 +131,9 @@ exports.logOut = (req, res) => {
 exports.changeLang = (req, res) => {
     const lang = req.params.l;
     req.session.lang = lang;
-    res.redirect('/admin')
+    if (req.session.user == 'admin') {
+        res.redirect('/admin')
+    } else {
+        res.redirect('/emp')
+    }
 }

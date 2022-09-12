@@ -18,7 +18,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: store, 
+    store: store,
     lang: 'ar'
 }))
 /********************************************************************************* */
@@ -40,7 +40,8 @@ app.post('/admin/add-employee', upload.single('photo'));
 app.post('/admin/edit-employee/:id', upload.single('photo'));
 /********************************************************************************* */
 const adminRoutes = require('./routes/admin');
-
+const employeeRoutes = require('./routes/employee');
+app.use('/emp', employeeRoutes);
 app.use('/', adminRoutes);
 /********************************************************************************* */
 mongoose.connect(dbUrl)
