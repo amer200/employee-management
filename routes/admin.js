@@ -10,6 +10,8 @@ route.post('/admin/add-employee', authControllers.isAdmin, employeeMiddleWare, a
 route.get('/admin/edit-emp/:id', authControllers.isAdmin, adminControllers.getEditEmployee);
 route.post('/admin/edit-employee/:id', authControllers.isAdmin, adminControllers.editEmployee);
 route.post('/admin/remove-emp/:id', authControllers.isAdmin, adminControllers.removeEmp);
+route.post('/admin/change-admin-password', authControllers.isAdmin, adminControllers.changeAdminPassword);
+route.post('/admin/change-emp-password', authControllers.isAdmin, adminControllers.changeEmpPassword);
 route.get('/login', adminControllers.getLogIn);
 route.post('/login', adminControllers.postLogIn);
 route.get('/logout', adminControllers.logOut);

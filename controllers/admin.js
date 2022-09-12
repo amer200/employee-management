@@ -137,3 +137,31 @@ exports.changeLang = (req, res) => {
         res.redirect('/emp')
     }
 }
+exports.changeAdminPassword = (req, res) => {
+    const password = req.body.password;
+    User.findOne({ name: 'admin' })
+        .then(u => {
+            u.password = password;
+            u.save();
+        })
+        .then(resu => {
+            res.redirect('/admin');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+exports.changeEmpPassword = (req, res) => {
+    const password = req.body.password;
+    User.findOne({ name: 'emp' })
+        .then(u => {
+            u.password = password;
+            u.save();
+        })
+        .then(resu => {
+            res.redirect('/admin');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}

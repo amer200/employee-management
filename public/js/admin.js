@@ -23,6 +23,18 @@ const removeEmp = (t) => {
         form.submit()
     }
 }
+const changeAdminPassword = () => {
+    const myForm = document.getElementById('changeAdminPasswordForm');
+    if (confirm('سيتم تغير كلمة مرور المسوؤل')) {
+        myForm.submit()
+    }
+}
+const changeEmpPassword = () => {
+    const myForm = document.getElementById('changeEmpPasswordForm');
+    if (confirm('سيتم تغير كلمة مرور الموظف')) {
+        myForm.submit()
+    }
+}
 /* qr Scanner */
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
