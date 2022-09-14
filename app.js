@@ -8,7 +8,6 @@ const dbUrl = process.env.DB_URL;
 const port = process.env.PORT;
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-
 /******************************************************************* */
 const store = new MongoDBStore({
     uri: dbUrl,
