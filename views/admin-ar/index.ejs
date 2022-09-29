@@ -50,6 +50,11 @@
                                 <input type="text" class="form-control data" name="data" value="" required>
                             </div>
                             <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="الid"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
                                 <input type="text" class="form-control title" name="title" value="" required>
                                 <input type="text" class="form-control data" name="data" value="" required>
                             </div>
@@ -97,9 +102,9 @@
                             <div id="reader" style="background-color: #fff;"></div>
                         </li>
                         <li class="list-group-item gray">
-                            <h5>البحث بالاسم</h5>
+                            <h5>البحث بال id</h5>
                             <form action="/admin/search-emp" method="post">
-                                <input type="text" class="form-control" placeholder="اسم الموظف" name="name">
+                                <input type="text" class="form-control" placeholder="id" name="id">
                             </form>
                         </li>
                         <% if(searchMsg){%>
@@ -109,9 +114,9 @@
                                 </span>
                             </li>
                             <%}%>
-                            <li class="list-group-item gray">
-                                <a href="/admin" class="btn btn-dark"> عرض الكل</a>
-                            </li>
+                                <li class="list-group-item gray">
+                                    <a href="/admin" class="btn btn-dark"> عرض الكل</a>
+                                </li>
                                 <% employees.forEach( e=>{ %>
                                     <li class="list-group-item gray">
                                         <span class="title">

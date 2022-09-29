@@ -36,7 +36,7 @@ exports.getEmployee = (req, res) => {
         })
 }
 exports.searchForEmpByName = (req, res) => {
-    const name = req.body.name;
+    const id = req.body.id.toString();
     let lang = 'ar';
     if (req.session.lang) {
         lang = req.session.lang
@@ -45,7 +45,7 @@ exports.searchForEmpByName = (req, res) => {
         .then(emps => {
             let e;
             emps.forEach(emp => {
-                if (emp.data[0].includes(name)) {
+                if (emp.data[1].includes(id)) {
                     e = emp;
                 }
             })
@@ -59,7 +59,7 @@ exports.searchForEmpByName = (req, res) => {
                 const emp = [];
                 let searchMsg;
                 if (lang == 'ar') {
-                    searchMsg = 'لا يوجد موظف بهذا الاسم';
+                    searchMsg = 'لا يوجد موظف بهذا الid';
                 } else {
                     searchMsg = 'not found !';
                 }
