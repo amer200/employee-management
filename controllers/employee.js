@@ -8,6 +8,7 @@ exports.getMainPage = (req, res) => {
         .then(employees => {
             res.render(`main-${lang}/index`, {
                 employees: employees,
+                searchMsg: false
             })
         })
         .catch(err => {
@@ -28,6 +29,44 @@ exports.getEmployee = (req, res) => {
                 });
             } else {
                 res.send('not found !');
+            }
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+exports.searchForEmpByName = (req, res) => {
+    const name = req.body.name;
+    let lang = 'ar';
+    if (req.session.lang) {
+        lang = req.session.lang
+    }
+    Employee.find()
+        .then(emps => {
+            let e;
+            emps.forEach(emp => {
+                if (emp.data[0].includes(name)) {
+                    e = emp;
+                }
+            })
+            if (e) {
+                const emp = [e];
+                res.render(`main-${lang}/index`, {
+                    employees: emp,
+                    searchMsg: false
+                })
+            } else {
+                const emp = [];
+                let searchMsg;
+                if (lang == 'ar') {
+                    searchMsg = 'لا يوجد موظف بهذا الاسم';
+                } else {
+                    searchMsg = 'not found !';
+                }
+                res.render(`main-${lang}/index`, {
+                    employees: emp,
+                    searchMsg: searchMsg
+                })
             }
         })
         .catch(err => {

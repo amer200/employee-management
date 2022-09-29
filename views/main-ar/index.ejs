@@ -74,15 +74,31 @@
                             <h5>البحث باستخدام qrcode</h5>
                             <div id="reader" style="background-color: #fff;"></div>
                         </li>
-                        <% employees.forEach( e=>{ %>
+                        <li class="list-group-item gray">
+                            <h5>البحث بالاسم</h5>
+                            <form action="/emp/search-emp" method="post">
+                                <input type="text" class="form-control" placeholder="اسم الموظف" name="name">
+                            </form>
+                        </li>
+                        <% if(searchMsg){%>
                             <li class="list-group-item gray">
-                                <span class="data">
-                                    <%= e.data[0][1]%>
+                                <span class="title">
+                                    <%= searchMsg%>
                                 </span>
-                                <img src="<%=e.img%>" alt="" srcset="">
-                                <a href="/emp/show-emp/<%=e._id%>" class="btn btn-primary">عرض</a>
                             </li>
-                            <%})%>
+                            <%}%>
+                                <li class="list-group-item gray">
+                                    <a href="/emp" class="btn btn-dark"> عرض الكل</a>
+                                </li>
+                                <% employees.forEach( e=>{ %>
+                                    <li class="list-group-item gray">
+                                        <span class="data">
+                                            <%= e.data[0][1]%>
+                                        </span>
+                                        <img src="<%=e.img%>" alt="" srcset="">
+                                        <a href="/emp/show-emp/<%=e._id%>" class="btn btn-primary">عرض</a>
+                                    </li>
+                                    <%})%>
                     </ul>
                 </div>
             </div>
