@@ -24,7 +24,11 @@
                         <input type="text" class="form-control title" name="title" readonly value="الاسم" required>
                         <input type="text" class="form-control data" name="data" value="<%= e.data[0][1]%>" required>
                     </div>
-                    <% for(let i=1; i < e.data.length; i++){%>
+                    <div class="mb-3">
+                        <input type="text" class="form-control title" name="title" readonly value="id" required>
+                        <input type="text" class="form-control data" name="data" value="<%= e.data[1][1]%>" required>
+                    </div>
+                    <% for(let i=2; i < e.data.length; i++){%>
                         <div class="mb-3">
                             <input type="text" class="form-control title" name="title" value="<%= e.data[i][0]%>"
                                 required>
