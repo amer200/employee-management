@@ -21,7 +21,7 @@
                     class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
                     <a href="/"
                         class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5">UNI<span class="d-none d-sm-inline">charm</span></span>
+                        <span class="fs-5">UNI<span class="d-none d-sm-inline">CHARM</span></span>
                     </a>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start"
                         id="menu">
@@ -50,12 +50,57 @@
                                 <input type="text" class="form-control data" name="data" value="" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control title" name="title" readonly value="id"
+                                <input type="text" class="form-control title" name="title" readonly value="id" required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="site"
                                     required>
                                 <input type="text" class="form-control data" name="data" value="" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control title" name="title" value="" required>
+                                <input type="text" class="form-control title" name="title" readonly
+                                    value="Department /Section" required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="Position"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="Hiring Date"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="Gender"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="Birth Date"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="Mobile"
+                                    required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly
+                                    value="National Code" required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly
+                                    value="Main Category - English" required>
+                                <input type="text" class="form-control data" name="data" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control title" name="title" readonly value="Nationality"
+                                    required>
                                 <input type="text" class="form-control data" name="data" value="" required>
                             </div>
                             <div class="mb-3">
@@ -72,25 +117,50 @@
                     <h1></h1>
                     <hr>
                     <h1></h1>
-                    <form action="/admin/change-admin-password" id="changeAdminPasswordForm" method="post">
-                        <h4 style="color: red;">change admin password</h4>
-                        <div class="mb-3">
-                            <input class="form-control" type="password" name="password" placeholder="كلمة مرور المسؤول">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        style="margin-top: 200px;">
+                        change admin&employee passwords
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">change passwords</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/admin/change-admin-password" id="changeAdminPasswordForm"
+                                        method="post">
+                                        <h4 style="color: red;">change admin password</h4>
+                                        <div class="mb-3">
+                                            <input class="form-control" type="password" name="password"
+                                                placeholder="كلمة مرور المسؤول">
+                                        </div>
+                                        <button class="btn btn-dark" type="button" onclick="changeAdminPassword()"
+                                            id="changePasswordBtn">save</button>
+                                    </form>
+                                    <h1></h1>
+                                    <hr>
+                                    <h1></h1>
+                                    <form action="/admin/change-emp-password" id="changeEmpPasswordForm" method="post">
+                                        <h4 style="color: red;">change employee password</h4>
+                                        <div class="mb-3">
+                                            <input class="form-control" type="password" name="password"
+                                                placeholder="كلمة مرور الموظف">
+                                        </div>
+                                        <button class="btn btn-dark" type="button" onclick="changeEmpPassword()"
+                                            id="changePasswordBtn">save</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-dark" type="button" onclick="changeAdminPassword()"
-                            id="changePasswordBtn">save</button>
-                    </form>
-                    <h1></h1>
-                    <hr>
-                    <h1></h1>
-                    <form action="/admin/change-emp-password" id="changeEmpPasswordForm" method="post">
-                        <h4 style="color: red;">change employee password</h4>
-                        <div class="mb-3">
-                            <input class="form-control" type="password" name="password" placeholder="كلمة مرور الموظف">
-                        </div>
-                        <button class="btn btn-dark" type="button" onclick="changeEmpPassword()"
-                            id="changePasswordBtn">save</button>
-                    </form>
+                    </div>
                 </main>
             </div>
             <div class="col-md-4 col-sm-12 d-flex flex-column h-sm-100 img-gallery gray">

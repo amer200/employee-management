@@ -31,11 +31,11 @@
                     <% for(let i=2; i < e.data.length; i++){%>
                         <div class="mb-3">
                             <input type="text" class="form-control title" name="title" value="<%= e.data[i][0]%>"
-                                required>
+                                required readonly>
                             <input type="text" class="form-control data" name="data" value="<%= e.data[i][1]%>" required
                                 style="width: 70%;">
-                            <button type="button" onclick="removeInputs(this)" id="add-data"
-                                class="btn btn-danger">-</button>
+                            <!-- <button type="button" onclick="removeInputs(this)" id="add-data"
+                                class="btn btn-danger">-</button> -->
                         </div>
                         <%}%>
                             <div class="mb-3">
