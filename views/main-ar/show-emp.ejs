@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container" style="padding: 100px;">
+    <div class="container" style="padding-top: 100px;">
         <div class="row">
             <div class="col-12">
                 <form action="/admin/edit-employee/<%=e._id%>" id="add-emp-form" method="post"
@@ -35,7 +35,7 @@
                             <input type="text" class="form-control title" name="title" readonly
                                 value="<%= e.data[i][0]%>" required>
                             <input type="text" class="form-control data" name="data" readonly value="<%= e.data[i][1]%>"
-                                required style="width: 70%;">
+                                required>
                         </div>
                         <%}%>
                             <div class="mb-3" style="width: 50%; display: inline;">
@@ -45,6 +45,7 @@
                                 <img src="<%=e.qr%>" alt="">
                             </div>
                             <div class="mb-3">
+                                <h6>بحث</h6>
                                 <div id="reader" style="background-color: #fff;"></div>
                             </div>
                 </form>
