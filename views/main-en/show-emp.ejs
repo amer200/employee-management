@@ -18,24 +18,24 @@
             <div class="col-12">
                 <form action="/admin/edit-employee/<%=e._id%>" id="add-emp-form" method="post"
                     enctype="multipart/form-data">
-                    <h4 class="form-label">show employee: <%=e.data[0][1]%>
+                    <h4 class="form-label">عرض بينات الموظف : <%=e.data[0][1]%>
                     </h4>
                     <div class="mb-3">
                         <input type="text" class="form-control title" name="title" readonly value="الاسم" required>
-                        <input type="text" class="form-control data" name="data" readonly value="<%= e.data[0][1]%>"
-                            required>
+                        <textarea type="text" class="form-control textarea data" name="data" readonly
+                            value="<%= e.data[0][1]%>" required><%= e.data[0][1]%></textarea>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control title" name="title" readonly value="id" required>
-                        <input type="text" class="form-control data" name="data" readonly value="<%= e.data[1][1]%>"
-                            required>
+                        <textarea type="text" class="form-control textarea data" name="data" readonly
+                            value="<%= e.data[1][1]%>" required><%= e.data[1][1]%></textarea>
                     </div>
                     <% for(let i=2; i < e.data.length; i++){%>
                         <div class="mb-3">
                             <input type="text" class="form-control title" name="title" readonly
                                 value="<%= e.data[i][0]%>" required>
-                            <input type="text" class="form-control data" name="data" readonly value="<%= e.data[i][1]%>"
-                                required>
+                            <textarea type="text" class="form-control textarea data" name="data" readonly
+                                value="<%= e.data[i][1]%>" required><%= e.data[i][1]%></textarea>
                         </div>
                         <%}%>
                             <div class="mb-3" style="width: 50%; display: inline;">
@@ -45,7 +45,7 @@
                                 <img src="<%=e.qr%>" alt="">
                             </div>
                             <div class="mb-3">
-                                <h6>scan again</h6>
+                                <h6>بحث</h6>
                                 <div id="reader" style="background-color: #fff;"></div>
                             </div>
                 </form>

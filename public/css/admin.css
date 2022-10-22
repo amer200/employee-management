@@ -54,14 +54,23 @@
     width: 74%;
 }
 
+#add-emp-form .textarea {
+    position: relative;
+    top: 13px;
+    height: 38px;
+}
+
 @media (max-width: 720px) {
     #add-emp-form .submit-btn {
         width: 100%;
     }
 
-    #add-emp-form .title,
-    #add-emp-form .data {
+    #add-emp-form .title {
         width: 48%;
+    }
+
+    #add-emp-form .data {
+        width: 100%;
     }
 
     .ms-auto {

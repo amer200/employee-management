@@ -22,20 +22,20 @@
                     </h4>
                     <div class="mb-3">
                         <input type="text" class="form-control title" name="title" readonly value="الاسم" required>
-                        <input type="text" class="form-control data" name="data" readonly value="<%= e.data[0][1]%>"
-                            required>
+                        <textarea type="text" class="form-control textarea data" name="data" readonly
+                            value="<%= e.data[0][1]%>" required><%= e.data[0][1]%></textarea>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control title" name="title" readonly value="id" required>
-                        <input type="text" class="form-control data" name="data" readonly value="<%= e.data[1][1]%>"
-                            required>
+                        <textarea type="text" class="form-control textarea data" name="data" readonly
+                            value="<%= e.data[1][1]%>" required><%= e.data[1][1]%></textarea>
                     </div>
                     <% for(let i=2; i < e.data.length; i++){%>
                         <div class="mb-3">
                             <input type="text" class="form-control title" name="title" readonly
                                 value="<%= e.data[i][0]%>" required>
-                            <input type="text" class="form-control data" name="data" readonly value="<%= e.data[i][1]%>"
-                                required>
+                            <textarea type="text" class="form-control textarea data" name="data" readonly
+                                value="<%= e.data[i][1]%>" required><%= e.data[i][1]%></textarea>
                         </div>
                         <%}%>
                             <div class="mb-3" style="width: 50%; display: inline;">
