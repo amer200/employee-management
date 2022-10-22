@@ -48,6 +48,8 @@
 
 #add-emp-form .title {
     width: 25%;
+    background-color: #06283D;
+    color: #fff;
 }
 
 #add-emp-form .data {
