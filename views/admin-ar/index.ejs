@@ -32,6 +32,7 @@
                             <img src="/imgs/logo.jpeg" alt="hugenerd" width="28" height="28" class="rounded-circle">
                             <span class="d-none d-sm-inline mx-1">unicharm</span>
                         </a>
+
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                             <li><a class="dropdown-item" href="/logout">تسجيل الخروج</a></li>
                         </ul>
@@ -41,8 +42,12 @@
             <div class="col-md-6 col-sm-12 d-flex flex-column h-sm-100 gray">
                 <main class="row overflow-auto">
                     <div class="col pt-4">
+
                         <form action="/admin/add-employee" id="add-emp-form" method="post"
                             enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <a href="/lang/en">En</a>
+                            </div>
                             <h4 class="form-label">اضف موظف</h4>
                             <div class="mb-3">
                                 <input type="text" class="form-control title" name="title" readonly value="name"
@@ -205,13 +210,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <a href="/lang/en" style="position: relative;
-                    right: 101%;
-                    top: -41px;">En</a>
-                </div>
-            </div>
+
         </div>
     </div>
     </div>

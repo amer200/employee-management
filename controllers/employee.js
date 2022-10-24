@@ -4,16 +4,9 @@ exports.getMainPage = (req, res) => {
     if (req.session.lang) {
         lang = req.session.lang
     }
-    Employee.find()
-        .then(employees => {
-            res.render(`main-${lang}/index`, {
-                employees: employees,
-                searchMsg: false
-            })
-        })
-        .catch(err => {
-            console.log(err)
-        })
+    res.render(`main-${lang}/index`, {
+        searchMsg: false
+    })
 }
 exports.getEmployee = (req, res) => {
     let lang = 'ar';
