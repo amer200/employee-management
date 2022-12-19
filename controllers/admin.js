@@ -10,6 +10,7 @@ exports.getMainPage = (req, res) => {
         lang = req.session.lang
     }
     Employee.find()
+        .limit(10)
         .then(employees => {
             res.render(`admin-${lang}/index`, {
                 employees: employees,
