@@ -1,4 +1,4 @@
-const inputsTemp = `<input type="text" class="form-control title" name="title" value="" required> <input type="text" class="form-control data" name="data" value="" required>`;
+const inputsTemp = `<input type="text" class="form-control title" name="title" value="" required> <input type="text" class="form-control data" name="data" value="" style="width: 68%" required> <button class="btn btn-danger" onclick="removeInputs(this)">-</button>`;
 const addInputs = (t) => {
     const myDiv = document.createElement('div');
     myDiv.classList = 'mb-3';
